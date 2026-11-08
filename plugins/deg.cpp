@@ -1,9 +1,9 @@
 #include "deg.h"
 #include <cmath>
 
-double PowOper::operator()(std::vector<double>& List) {
+double PowOper::operator()(const std::vector<double>& List) {
 	if (List[0] < 0)
-		throw std::exception("Operatoin 'x^y' requires x >= 0.");
+		throw std::runtime_error("Operatoin 'x^y' requires x >= 0.");
 	return std::pow(List[0], List[1]);
 }
 

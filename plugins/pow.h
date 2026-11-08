@@ -5,6 +5,6 @@
 class PowFunc : public Function {
 public:
 	PowFunc() : Function("pow", 2) {}
-	double operator()(std::vector<double>& List) override;
+	double operator()(const std::vector<double>& List) override;
 };
 

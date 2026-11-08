@@ -1,9 +1,9 @@
 #include "sqrt.h"
 #include <cmath>
 
-double SqrtFunc::operator()(std::vector<double>& List) {
+double SqrtFunc::operator()(const std::vector<double>& List) {
 	if (List[0] < 0)
-		throw std::exception("Function 'sqrt(x)' requires x >= 0.");
+		throw std::runtime_error("Function 'sqrt(x)' requires x >= 0.");
 	return std::sqrt(List[0]);
 }
 

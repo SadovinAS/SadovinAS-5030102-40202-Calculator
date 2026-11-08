@@ -9,10 +9,14 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
-project ("Calculator")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Add source to this project's executable.
-add_executable (CMakeTarget "5S Lab1 Calculator.cpp" "5S Lab1 Calculator.h" "Calc.cpp"  "Calc.h" "Function.cpp" "Function.h" "Term.h" "Operation.h" "PluginLoader.h" "Operation.cpp"  "Term.cpp" "PluginLoader.cpp")
+project(Calculator LANGUAGES CXX)
+
+
+add_executable (CMakeTarget "source/Calculator.cpp" "source/Calc.cpp" "source/Function.cpp" "source/Operation.cpp"  "source/Term.cpp" "source/PluginLoader.cpp")
+
+target_include_directories(CMakeTarget PRIVATE header)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET CMakeTarget PROPERTY CXX_STANDARD 20)

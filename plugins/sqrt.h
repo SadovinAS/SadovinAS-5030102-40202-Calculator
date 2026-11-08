@@ -5,6 +5,6 @@
 class SqrtFunc : public Function {
 public:
 	SqrtFunc() : Function("sqrt", 1) {}
-	double operator()(std::vector<double>& List) override;
+	double operator()(const std::vector<double>& List) override;
 };
 

@@ -1,9 +1,9 @@
 #include "pow.h"
 #include <cmath>
 
-double PowFunc::operator()(std::vector<double>& List) {
+double PowFunc::operator()(const std::vector<double>& List) {
 	if (List[0] < 0)
-		throw std::exception("Function 'pow(x, y)' requires x >= 0.");
+		throw std::runtime_error("Function 'pow(x, y)' requires x >= 0.");
 	return std::pow(List[0], List[1]);
 }
 

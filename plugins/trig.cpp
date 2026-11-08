@@ -2,17 +2,12 @@
 #include <cmath>
 #include <string>
 
-double SinFunc::operator()(std::vector<double>& List) {
-	return std::sin(List[0]);
-}
-double CosFunc::operator()(std::vector<double>& List) {
-	return std::cos(List[0]);
-}
-double TanFunc::operator()(std::vector<double>& List) {
-	return std::tan(List[0]);
-}
-double CotFunc::operator()(std::vector<double>& List) {
-	return 1 / std::tan(List[0]);
+double CotFunc::operator()(const std::vector<double>& List) {
+	double s = std::sin(List[0]);
+	if (s == 0)
+		throw std::runtime_error("Cotan of " + std::to_string(List[0]) + " is udentifyed.");
+	return std::cos(List[0]) / s;
+	
 }
 
 extern "C" __declspec(dllexport) void LoadFunc(std::vector<std::shared_ptr<Function>>& List) {
